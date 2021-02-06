@@ -15,8 +15,10 @@ from rest_framework.status import (
 
 class ReportingViewset(viewsets.ViewSet):
 
-    @action(methods=['get'], detail=False, url_path='barang-dev')
+    @action(methods=['get'], detail=False, url_path='order-dev')
     def barang_dev(self, request):
+        # TODO: Add Auth and Permissions
+        # TODO: Move manual query a controller
         # Report of barang s_order, mean_order, s_demand, mean_deman
         # cv_order, cv_demand, BE, and lead time
         with connection.cursor() as cursor:
@@ -94,9 +96,6 @@ class ReportingViewset(viewsets.ViewSet):
                     'cv_order': row[5],
                     'cv_demand': row[6]
                 })
-                print(row)
-            # print(cursor)
-            # row = cursor.fetch()
 
             return Response({
                 "data": mapped_res,
