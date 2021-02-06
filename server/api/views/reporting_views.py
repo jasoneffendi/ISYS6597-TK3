@@ -94,7 +94,11 @@ class ReportingViewset(viewsets.ViewSet):
                     's_demand': row[3],
                     'mean_demand': row[4],
                     'cv_order': row[5],
-                    'cv_demand': row[6]
+                    'cv_demand': row[6],
+                    'be': row[7],
+                    'lead_time': row[8],
+                    'parameter': row[9],
+                    'bullwhip_effect': row[10]
                 })
 
             return Response({
